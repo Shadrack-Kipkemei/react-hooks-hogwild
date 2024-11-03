@@ -55,6 +55,7 @@ function App() {
 					<option value="weight">Weight</option>
 				</select>
 			</label>
+			<Nav/>
 			{/* Form to add new hogs  */}
 			<HogForm onAddHog={handleAddHog} /> 
 
@@ -66,6 +67,7 @@ function App() {
 			hiddenHogs={hiddenHogs}
 			onHide={handleHide}
 			/>
+			
 		</div>
 	);
 }
