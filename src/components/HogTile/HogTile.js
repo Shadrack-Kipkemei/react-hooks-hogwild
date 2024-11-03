@@ -1,33 +1,49 @@
 import React, { useState } from 'react';
+import { Card, Image, Button, Icon } from 'semantic-ui-react';
 
 function HogTile({ name, image, specialty, weight, greased, medal, onHide }) {
+  // State for toggling details view
   const [showDetails, setShowDetails] = useState(false);
 
+  // Toggles details view
   function handleClick() {
     setShowDetails(!showDetails);
   }
 
-  function handleHideClick (e) {
-    e.stopPropagation(); //Prevent the click event from triggering showdetails toggle
-    onHide(name);
+  // Handles hiding a hog
+  function handleHideClick(e) {
+    e.stopPropagation(); // Prevent the click event from triggering showDetails toggle
+    onHide(name); // Calls the onHide function passed down from HogList
   }
 
   return (
-    <div className="hog-tile" onClick={handleClick}> 
-      <h3>{name}</h3>
-      <img src={image} alt={name} />
-      {showDetails && (
-        <div className="hog-details">
-          <p><strong>Specialty:</strong> {specialty}</p> 
-          <p><strong>Weight:</strong> {weight} kg</p>
-          <p><strong>Greased:</strong> {greased ? "Yes" : "No"}</p>
-          <p><strong>Highest Medal Achieved:</strong> {medal}</p>
-        </div>
-      )}
-      <button onClick={handleHideClick}>Hide</button>
-    </div>
+    <Card onClick={handleClick}>
+      <Image src={image} wrapped ui={false} />
+      <Card.Content>
+        <Card.Header>{name}</Card.Header>
+        {showDetails && (
+          <>
+            <Card.Meta>
+              <span className='date'>{specialty}</span>
+            </Card.Meta>
+            <Card.Description>
+              <strong>Weight:</strong> {weight} kg <br />
+              <strong>Greased:</strong> {greased ? "Yes" : "No"} <br />
+              <strong>Highest Medal Achieved:</strong> {medal}
+            </Card.Description>
+          </>
+        )}
+      </Card.Content>
+      <Card.Content extra>
+        <Button onClick={handleHideClick} icon>
+          <Icon name='hide' /> Hide
+        </Button>
+      </Card.Content>
+    </Card>
   );
 }
 
 export default HogTile;
+
+
 

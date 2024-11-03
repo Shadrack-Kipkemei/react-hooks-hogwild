@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 
 function HogForm ({onAddHog}) {
+  // Initial form data state
   const [formData, setFormData] = useState({
     name:"",
     specialty: "",
@@ -10,6 +11,7 @@ function HogForm ({onAddHog}) {
     image: ""
   })
 
+  // Updates form data state on input change
   function handleChange(event) {
     const {name, value, type, checked} = event.target;
     setFormData(formData => ({
@@ -18,9 +20,10 @@ function HogForm ({onAddHog}) {
     }))
   }
 
+  // Handles form submission
   function handleSubmit (event) {
     event.preventDefault();
-    onAddHog(formData);
+    onAddHog(formData); /// Sends new hog data back to the parent
     setFormData({
       name: "",
       specialty: "",
