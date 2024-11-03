@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 
-function HogTile({ name, image, specialty, weight, greased, medal }) {
+function HogTile({ name, image, specialty, weight, greased, medal, onHide }) {
   const [showDetails, setShowDetails] = useState(false);
 
   function handleClick() {
     setShowDetails(!showDetails);
+  }
+
+  function handleHideClick (e) {
+    e.stopPropagation(); //Prevent the click event from triggering showdetails toggle
+    onHide(name);
   }
 
   return (
@@ -19,6 +24,7 @@ function HogTile({ name, image, specialty, weight, greased, medal }) {
           <p><strong>Highest Medal Achieved:</strong> {medal}</p>
         </div>
       )}
+      <button onClick={handleHideClick}>Hide</button>
     </div>
   );
 }
