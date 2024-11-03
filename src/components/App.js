@@ -4,6 +4,7 @@ import Nav from "./Nav";
 import hogs from "../porkers_data";
 import HogList from "./HogList/HogList";
 import HogForm from "./HogForm/HogForm";
+import 'semantic-ui-css/semantic.min.css';
 
 function App() {
 

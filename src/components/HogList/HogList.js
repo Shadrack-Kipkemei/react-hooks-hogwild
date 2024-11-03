@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './HogList.module.css';
 import HogTile from '../HogTile/HogTile';
 
 function HogList({ hogs, greasedOnly, sortKey, hiddenHogs, onHide }) {

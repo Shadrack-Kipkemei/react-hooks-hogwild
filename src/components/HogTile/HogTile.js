@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './HogTile.module.css';
 import { Card, Image, Button, Icon } from 'semantic-ui-react';
 
 function HogTile({ name, image, specialty, weight, greased, medal, onHide }) {

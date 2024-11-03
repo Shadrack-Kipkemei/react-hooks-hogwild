@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './HogForm.module.css';
 
 function HogForm ({onAddHog}) {
   // Initial form data state
